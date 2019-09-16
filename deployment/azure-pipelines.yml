@@ -22,10 +22,10 @@ steps:
 
 
 - task: CopyFiles@2
-  displayName: 'Copy source files'
+  displayName: 'Copy build folder'
   inputs:
-    SourceFolder: "$(build.sourcesDirectory)/source"
-    TargetFolder: "$(Build.ArtifactStagingDirectory)/output"
+    SourceFolder: "$(build.sourcesDirectory)/build"
+    TargetFolder: "$(Build.ArtifactStagingDirectory)/build"
 
 - task: CopyFiles@2
   displayName: 'Copy deployment files'
