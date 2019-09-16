@@ -1,3 +1,7 @@
+[![Build Status](https://dev.azure.com/discoverybyte/Movie%20List/_apis/build/status/BrandonBrazington.MovieList?branchName=master)](https://dev.azure.com/discoverybyte/Movie%20List/_build/latest?definitionId=11&branchName=master)
+
+[![Deployment Status](https://vsrm.dev.azure.com/discoverybyte/_apis/public/Release/badge/d9972b21-606e-4d1a-acbd-056da5473290/1/1)](https://vsrm.dev.azure.com/discoverybyte/_apis/public/Release/badge/d9972b21-606e-4d1a-acbd-056da5473290/1/1)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
