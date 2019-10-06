@@ -1,8 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import './App.css';
-import MovieList from './components/MovieList.js';
-import Header from './components/Header.js'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MovieSite from './components/MovieSite.js';
+import ListPicker from './components/ListPicker.js';
 
 const meganList = {
   listName: "Megan and Brandon's Movie Watch",
@@ -451,12 +450,13 @@ function App() {
       <Router>
         <Switch>
           <Route path="/megan">
-            <Header listName={meganList.listName}></Header>
-            <MovieList movies={meganList.movies}></MovieList>
+            <MovieSite siteInfo={meganList}></MovieSite>
+          </Route>
+          <Route path="/brandon">
+            <MovieSite siteInfo={brandonList}></MovieSite>
           </Route>
           <Route path="/">
-            <Header listName={brandonList.listName}></Header>
-            <MovieList movies={brandonList.movies}></MovieList>
+            <ListPicker></ListPicker>
           </Route>
         </Switch>
       </Router>
