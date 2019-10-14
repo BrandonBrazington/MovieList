@@ -13,4 +13,21 @@ header {
 header h1 {
     margin: 0;
     font-size: 1.3em;
+    float: left;
+}
+
+button {
+    padding: 7px 13px;
+    background-color: #b12121;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 1px solid #b12121;
+    font-weight: bold;
+    float: right;
+}
+
+button:hover {
+    background-color: rgb(0, 255, 115);
+    color: #b12121;
 }
