@@ -7,14 +7,6 @@ const meganList = {
   listName: "Megan and Brandon's Movie Watch",
   movies: [
     {
-      "name": "Atlantis: The Lost Empire",
-      "year": 2001,
-      "imdb": "tt0230011",
-      "rating": "PG",
-      "youtube": "sZIimDPZQwg",
-      "image": "https://m.media-amazon.com/images/M/MV5BNjM2NzNjMDAtZTAyMi00NTQzLWFlMTctNTUzMGE1ODE2NDRlXkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SY1000_CR0,0,677,1000_AL_.jpg"
-    },
-    {
       "name": "Whisper of the Heart",
       "year": 1995,
       "imdb": "tt0113824",
@@ -109,14 +101,6 @@ const meganList = {
       "rating": "PG",
       "youtube": "au9nFe4mjIA",
       "image": "https://m.media-amazon.com/images/M/MV5BMTQ4NDk3MDk0NV5BMl5BanBnXkFtZTcwMzk4OTgyMQ@@._V1_.jpg"
-    },
-    {
-      "name": "Hidalgo",
-      "year": 2004,
-      "imdb": "tt0317648",
-      "rating": "PG-13",
-      "youtube": "urnjRUVYRY8",
-      "image": "https://m.media-amazon.com/images/M/MV5BMTgyNjg5MjcxMl5BMl5BanBnXkFtZTcwNDQxMzQyMQ@@._V1_.jpg"
     },
     {
       "name": "Hitch",
