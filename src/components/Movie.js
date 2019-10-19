@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './css/Movie.css'
 
 function Movie(props) {
-    if (props.viewed) return null;
     return <div className="movie col-md-6 col-lg-4">
         <img src={props.image} alt="" className="movie-image" width="270" height="392" />
         <h2>{props.name} ({props.year.toString()})</h2>
@@ -20,8 +19,7 @@ Movie.propTypes = {
     image: PropTypes.string.isRequired,
     imdb: PropTypes.string.isRequired,
     rating: PropTypes.string.isRequired,
-    youtube: PropTypes.string.isRequired,
-    viewed: PropTypes.bool.isRequired
+    youtube: PropTypes.string.isRequired
 }
 
 export default Movie;

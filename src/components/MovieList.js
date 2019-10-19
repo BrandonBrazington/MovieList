@@ -1,14 +1,25 @@
 import React from 'react';
 import Movie from './Movie.js';
+import PropTypes from 'prop-types';
 import "./css/MovieList.css";
 
 function MovieList(props) {
+    let filteredMovies = props.movies.filter((movie) => {
+        if (props.showViewed && movie.viewed) { return true }
+        if (props.showUnviewed && !movie.viewed) {return true}
+        return false;
+    })
     return (
         <div className="grid-container">
-            {props.movies.map((m, id) => <Movie key={id} {...m} />)}
-            {/* {props.movies.map(m => <Movie key={m.id} name={m.name} year={m.year} image={m.image} imdb={m.imdb} rating={m.rating} youtube={m.youtube}/>)} */}
+            {filteredMovies.map((m, id) => <Movie key={id} {...m} />)}
         </div>
     );
+}
+
+MovieList.propTypes = {
+    movies: PropTypes.array.isRequired,
+    showViewed: PropTypes.bool.isRequired,
+    showUnviewed: PropTypes.bool.isRequired
 }
 
 export default MovieList;

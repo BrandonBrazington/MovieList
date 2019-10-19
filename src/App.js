@@ -55,7 +55,7 @@ const brandonList = {
       rating: "PG-13",
       image: "https://upload.wikimedia.org/wikipedia/" +
         "en/f/f9/TheAvengers2012Poster.jpg",
-      viewed: false
+      viewed: true
     },
   ]
 }
@@ -65,11 +65,17 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+        <Route path="/megan/viewed">
+            <MovieSite siteInfo={meganList} showViewed={true} showUnviewed={false}></MovieSite>
+          </Route>
+          <Route path="/brandon/viewed">
+            <MovieSite siteInfo={brandonList} showViewed={true}showUnviewed={false}></MovieSite>
+          </Route>
           <Route path="/megan">
-            <MovieSite siteInfo={meganList}></MovieSite>
+            <MovieSite siteInfo={meganList} showViewed={false} showUnviewed={true}></MovieSite>
           </Route>
           <Route path="/brandon">
-            <MovieSite siteInfo={brandonList}></MovieSite>
+            <MovieSite siteInfo={brandonList} showViewed={false} showUnviewed={true}></MovieSite>
           </Route>
           <Route path="/">
             <ListPicker></ListPicker>
