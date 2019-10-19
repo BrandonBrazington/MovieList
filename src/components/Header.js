@@ -4,7 +4,10 @@ import "./css/Header.css";
 
 class Header extends React.Component {
     pickMovie(movies) {
-        let currentPick = movies[Math.floor(Math.random() * movies.length)];
+        let unviewedMovies = movies.filter((movie) => {
+            return !(movie.viewed)
+        })
+        let currentPick = unviewedMovies[Math.floor(Math.random() * unviewedMovies.length)];
         console.log(currentPick);
         window.open("https://www.imdb.com/title/" + currentPick.imdb, "_blank");
     }
