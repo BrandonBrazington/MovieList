@@ -1,22 +1,39 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import base from '../base.js';
 import "./css/MovieSite.css"
 import Header from './Header.js';
 import MovieList from './MovieList.js';
+import AddMovie from './AddMovie.js';
 
-function MovieSite(props) {
-    return (
-    <React.Fragment>
-        <Header listName={props.siteInfo.listName} movies={props.siteInfo.movies} showViewed={props.showViewed} showUnviewed={props.showUnviewed}></Header>
-        <MovieList movies={props.siteInfo.movies} showViewed={props.showViewed} showUnviewed={props.showUnviewed}></MovieList>
-    </React.Fragment>
-);
-}
+class MovieSite extends React.Component {
+    state = {
+        listName: "",
+        movies: []
+    };
 
-MovieSite.propTypes = {
-    siteInfo: PropTypes.object.isRequired,
-    showViewed: PropTypes.bool.isRequired,
-    showUnviewed: PropTypes.bool.isRequired
+    componentDidMount() {
+        base.syncState(`${this.props.match.params.listID}/movies`, { context: this, state: "movies" })
+        base.syncState(`${this.props.match.params.listID}/listName`, { context: this, state: "listName" })
+    }
+
+    addMovie = movie => {
+        let movies = [...this.state.movies];
+        movies.push(movie);
+        this.setState({
+            movies
+        })
+    }
+
+    render() {
+        if (this.props.match.path === "/:listID/add") return <AddMovie listName={this.state.listName} addMovie={this.addMovie}></AddMovie>
+        let showViewed = (this.props.match.path === "/:listID/viewed")
+        return (
+            <React.Fragment>
+                <Header listName={this.state.listName} movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed}></Header>
+                <MovieList movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed}></MovieList>
+            </React.Fragment>
+        );
+    }
 }
 
 export default MovieSite;

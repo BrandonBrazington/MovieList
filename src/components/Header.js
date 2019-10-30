@@ -15,18 +15,21 @@ class Header extends React.Component {
     }
 
     render() {
-        return <header className="navbar-fixed-top">
-            <h1>{this.props.listName} List</h1>
-            <button type="button" id="pick-movie-button" onClick={(e) => this.pickMovie(this.props.movies, this.props.showViewed, this.props.showUnviewed, e)}>Randomly pick a movie</button>
+        return (
+            <header className="navbar-fixed-top">
+                <h1>{this.props.listName} List</h1>
+                {this.props.movies ? <button type="button" id="pick-movie-button" onClick={(e) => this.pickMovie(this.props.movies, this.props.showViewed, this.props.showUnviewed, e)}>Randomly pick a movie</button> : null }
+                
         </header>
+        )
     }
 }
 
 Header.propTypes = {
     listName: PropTypes.string.isRequired,
-    movies: PropTypes.array.isRequired,
-    showViewed: PropTypes.bool.isRequired,
-    showUnviewed: PropTypes.bool.isRequired
+    movies: PropTypes.array,
+    showViewed: PropTypes.bool,
+    showUnviewed: PropTypes.bool
 }
 
 export default Header;

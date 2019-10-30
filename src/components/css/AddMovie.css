@@ -1,0 +1,7 @@
+#add-movie-form {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    grid-gap: 15px;
+    gap: 15px;
+}
