@@ -16,6 +16,10 @@ header h1 {
     float: left;
 }
 
+#pick-movie-button {
+    float: right;
+}
+
 button {
     padding: 7px 13px;
     background-color: #b12121;
@@ -24,7 +28,6 @@ button {
     border-radius: 25px;
     border: 1px solid #b12121;
     font-weight: bold;
-    float: right;
 }
 
 button:hover {

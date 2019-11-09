@@ -24,13 +24,25 @@ class MovieSite extends React.Component {
         })
     }
 
+    switchViewedState = movieIMDB => {
+        let movies = [...this.state.movies];
+        movies.forEach(m => {
+            if (m.imdb === movieIMDB) {
+                m.viewed = m.viewed ? false : true
+            }
+        })
+        this.setState({
+            movies
+        })
+    }
+
     render() {
         if (this.props.match.path === "/:listID/add") return <AddMovie listName={this.state.listName} addMovie={this.addMovie}></AddMovie>
         let showViewed = (this.props.match.path === "/:listID/viewed")
         return (
             <React.Fragment>
                 <Header listName={this.state.listName} movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed}></Header>
-                <MovieList movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed}></MovieList>
+                <MovieList movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} switchViewedState={this.switchViewedState}></MovieList>
             </React.Fragment>
         );
     }

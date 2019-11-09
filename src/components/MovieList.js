@@ -11,7 +11,7 @@ function MovieList(props) {
     })
     return (
         <div className="grid-container">
-            {filteredMovies.map((m, id) => <Movie key={id} {...m} />)}
+            {filteredMovies.map((m, id) => <Movie key={id} {...m} switchViewedState={props.switchViewedState} />)}
         </div>
     );
 }
@@ -19,7 +19,8 @@ function MovieList(props) {
 MovieList.propTypes = {
     movies: PropTypes.array.isRequired,
     showViewed: PropTypes.bool.isRequired,
-    showUnviewed: PropTypes.bool.isRequired
+    showUnviewed: PropTypes.bool.isRequired,
+    switchViewedState: PropTypes.func.isRequired
 }
 
 export default MovieList;
