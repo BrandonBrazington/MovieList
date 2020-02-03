@@ -12,12 +12,39 @@ class MovieSite extends React.Component {
     };
 
     componentDidMount() {
-        base.syncState(`${this.props.match.params.listID}/movies`, { context: this, state: "movies" })
-        base.syncState(`${this.props.match.params.listID}/listName`, { context: this, state: "listName" })
+        base.syncState(`${this.props.match.params.listID}/movies`, { context: this, state: "movies", defaultValue: [{
+            name: "",
+            year: 0,
+            imdb: "",
+            youtube: "-bc",
+            rating: "",
+            image: "",
+            viewed: false
+        }] })
+        base.syncState(`${this.props.match.params.listID}/listName`, { context: this, state: "listName", defaultValue: "New"})
+        // if (this.state.listName.length === 0) {
+        //     this.setState({ listName: "New" });
+        // }
+        // if (!Array.isArray(this.state.moivies)) {
+        //     this.setState({
+        //         movies: [{
+        //             name: "",
+        //             year: 0,
+        //             imdb: "",
+        //             youtube: "-bc",
+        //             rating: "",
+        //             image: "",
+        //             viewed: false
+        //         }]
+        //     })
+        // }
     }
 
     addMovie = movie => {
         let movies = [...this.state.movies];
+        if (movies[0].year === 0) {
+            movies.splice(0,1);
+        }
         movies.push(movie);
         this.setState({
             movies
@@ -40,10 +67,10 @@ class MovieSite extends React.Component {
         if (this.props.match.path === "/:listID/add") return <AddMovie listName={this.state.listName} addMovie={this.addMovie}></AddMovie>
         let showViewed = (this.props.match.path === "/:listID/viewed")
         return (
-            <React.Fragment>
+            <div className="movie-site">
                 <Header listName={this.state.listName} movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed}></Header>
-                <MovieList movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} switchViewedState={this.switchViewedState}></MovieList>
-            </React.Fragment>
+                <MovieList movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} switchViewedState={this.switchViewedState} listID={this.props.match.params.listID}></MovieList>
+            </div>
         );
     }
 }

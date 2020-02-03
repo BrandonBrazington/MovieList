@@ -71,8 +71,8 @@ class AddMovie extends React.Component {
                         <option value="true">Yes</option>
                         <option value="false">No</option>
                     </select>
-                    <button type="submit">Add Movie</button>
-                    <button type="button" onClick={(e) => this.getInfo()}>Get Info</button>
+                    <button type="submit" className="button">Add Movie</button>
+                    <button type="button" className="button" onClick={(e) => this.getInfo()}>Get Info</button>
                 </form>
             </div>
         )

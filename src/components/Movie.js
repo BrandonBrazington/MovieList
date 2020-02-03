@@ -17,7 +17,7 @@ class Movie extends React.Component {
             <a href={"https://www.youtube.com/watch?v=" + this.props.youtube} target="_blank" rel="noopener noreferrer" >Watch the trailer</a>
             <br />Rating: {this.props.rating}
             <br />
-            <button type="button" onClick={this.switchViewedState}>Mark as {this.props.viewed ? "unseen" : "viewed"}</button>
+            <button type="button"  className="button"onClick={this.switchViewedState}>Mark as {this.props.viewed ? "unseen" : "viewed"}</button>
         </div>;
     }
 }
