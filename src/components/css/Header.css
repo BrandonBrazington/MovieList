@@ -35,3 +35,7 @@ header h1 {
     color: #b12121;
     cursor: pointer;
 }
+
+.edit-icon-button:hover {
+    cursor: pointer;
+}

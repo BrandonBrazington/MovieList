@@ -40,6 +40,10 @@ class MovieSite extends React.Component {
         // }
     }
 
+    editListName = newListName => {
+        this.setState({listName: newListName})
+    }
+
     addMovie = movie => {
         let movies = [...this.state.movies];
         if (movies[0].year === 0) {
@@ -68,7 +72,7 @@ class MovieSite extends React.Component {
         let showViewed = (this.props.match.path === "/:listID/viewed")
         return (
             <div className="movie-site">
-                <Header listName={this.state.listName} movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed}></Header>
+                <Header listName={this.state.listName} movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} editListName={this.editListName}></Header>
                 <MovieList movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} switchViewedState={this.switchViewedState} listID={this.props.match.params.listID}></MovieList>
             </div>
         );

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import "./css/Header.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 class Header extends React.Component {
     pickedMovies = [];
@@ -24,12 +26,20 @@ class Header extends React.Component {
         }
     }
 
+    editListName(currentListName) {
+        let newListName = prompt("What would you like the list to be named? Note that 'List' will automatically appear after your given title.", currentListName)
+        if (newListName != null) {
+            this.props.editListName(newListName);
+        }
+    }
+
     render() {
         return (
             <header className="navbar-fixed-top">
                 <h1>
                     {this.props.listName} List
-                    {/* <button className="edit-list-name fa-edit"></button> */}
+                     {' '}
+                    <span class="edit-icon-button" onClick={(e) => this.editListName(this.props.listName)} ><FontAwesomeIcon icon={faEdit} /></span>
                 </h1>
                 {this.props.movies ? <button type="button" id="pick-movie-button" className="button" onClick={(e) => this.pickMovie(this.props.movies, this.props.showViewed, this.props.showUnviewed, e)}>Randomly pick a movie</button> : null}
 
@@ -42,7 +52,8 @@ Header.propTypes = {
     listName: PropTypes.string.isRequired,
     movies: PropTypes.array,
     showViewed: PropTypes.bool,
-    showUnviewed: PropTypes.bool
+    showUnviewed: PropTypes.bool,
+    editListName: PropTypes.func.isRequired
 }
 
 export default Header;
