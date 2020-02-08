@@ -39,7 +39,7 @@ class Header extends React.Component {
                 <h1>
                     {this.props.listName} List
                      {' '}
-                    <span class="edit-icon-button" onClick={(e) => this.editListName(this.props.listName)} ><FontAwesomeIcon icon={faEdit} /></span>
+                    <span className="edit-icon-button" onClick={(e) => this.editListName(this.props.listName)} ><FontAwesomeIcon icon={faEdit} /></span>
                 </h1>
                 {this.props.movies ? <button type="button" id="pick-movie-button" className="button" onClick={(e) => this.pickMovie(this.props.movies, this.props.showViewed, this.props.showUnviewed, e)}>Randomly pick a movie</button> : null}
 
