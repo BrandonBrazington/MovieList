@@ -32,7 +32,8 @@ class HamburgerMenu extends React.Component {
     return (
       <Menu right>
         <Link to="/" id="home" className="menu-item">Select Different List</Link>
-        {this.props.showUnviewed ? <Link to={"/" + this.props.listID + "/viewed"} id="viewed" className="menu-item">Go to Viewed Movies</Link> : <Link to={"/" + this.props.listID} id="unviewed" className="menu-item" href="/contact">Go to Unviewed Movies</Link>}
+        <Link to={"/" + this.props.listID + "/add"} id="add-movie-link" className="menu-item">Add a Movie</Link>
+        {this.props.showUnviewed ? <Link to={"/" + this.props.listID + "/viewed"} id="viewed-link" className="menu-item">Go to Viewed Movies</Link> : <Link to={"/" + this.props.listID} id="unviewed" className="menu-item" href="/contact">Go to Unviewed Movies</Link>}
         {this.props.movies ? <a type="button" id="pick-movie-button" className="menu-item" onClick={(e) => this.pickMovie(this.props.movies, this.props.showViewed, this.props.showUnviewed, e)}>Randomly pick a movie</a> : null}
       </Menu>
     );
