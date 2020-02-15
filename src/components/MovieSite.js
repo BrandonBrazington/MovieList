@@ -72,8 +72,8 @@ class MovieSite extends React.Component {
         let showViewed = (this.props.match.path === "/:listID/viewed")
         return (
             <div className="movie-site">
-                <Header listName={this.state.listName} movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} editListName={this.editListName}></Header>
-                <MovieList movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} switchViewedState={this.switchViewedState} listID={this.props.match.params.listID}></MovieList>
+                <Header listID={this.props.match.params.listID} listName={this.state.listName} movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} editListName={this.editListName}></Header>
+                <MovieList listID={this.props.match.params.listID} movies={this.state.movies} showViewed={showViewed} showUnviewed={!showViewed} switchViewedState={this.switchViewedState}></MovieList>
             </div>
         );
     }
